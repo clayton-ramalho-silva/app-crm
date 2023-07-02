@@ -10,24 +10,26 @@
                     <tr>
                         <th class="checkbox-column" style="display: none"> Record no. </th>
                         <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
+                        <th>email</th>
+                        <th>Telfone</th>
+                        <th>Empresa</th>
                         <th>Status</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($products as $product)
+                    @foreach ($customers as $customer)
                         <tr>
                             <td class="checkbox-column" style="display: none"> 1 </td>
-                            <td><p class="align-self-center mb-0 user-name"> {{ $product->name }} </p></td>
-                            <td><span class="inv-email"> {{ substr($product->description, 0, 20)  }}...</span></td>
-                            <td><span class="inv-amount">R$ {{ number_format($product->price,2,',','.') }}</span></td>
+                            <td><p class="align-self-center mb-0 user-name"> {{ $customer->name }} </p></td>
+                            <td><span class="inv-email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> {{ $customer->email }}</span></td>
+                            <td><span class="inv-amount">{{ $customer->phone }}</span></td>
+                            <td><span class="inv-amount">{{ $customer->organization }}</span></td>
 
                             <td>
-                                @if ($product->status == 'active')
-                                    <form action="{{ route('product.status', $product->id) }}" method="post">
+                                @if ($customer->status == 'active')
+                                    <form action="{{ route('customer.status', $customer->id) }}" method="post">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="deactive">
@@ -36,7 +38,7 @@
                                         </button>
                                     </form>
                                 @else
-                                    <form action="{{ route('product.status', $product->id) }}" method="post">
+                                    <form action="{{ route('customer.status', $customer->id) }}" method="post">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="status" value="active">
@@ -53,9 +55,9 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                        <a class="dropdown-item action-edit" href="{{ route('product.show', $product->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>Visualizar</a>
-                                        <a class="dropdown-item action-edit" href="{{ route('product.edit', $product->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>Editar</a>
-                                        <form action="{{ route('product.destroy', $product->id) }}" method="post">
+                                        <a class="dropdown-item action-edit" href="{{ route('customer.show', $customer->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>Visualizar</a>
+                                        <a class="dropdown-item action-edit" href="{{ route('customer.edit', $customer->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>Editar</a>
+                                        <form action="{{ route('customer.destroy', $customer->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" id="btn-submit-delete" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>Deletar</button>
@@ -102,10 +104,10 @@ var invoiceList = $('#invoice-list').DataTable({
     }],
     buttons: [
         {
-            text: 'Adcionar Produto',
+            text: 'Adcionar Cliente',
             className: 'btn btn-primary btn-sm',
             action: function(e, dt, node, config ) {
-                window.location = "{{ route('product.create') }}";
+                window.location = "{{ route('customer.create') }}";
             }
         }
     ],
