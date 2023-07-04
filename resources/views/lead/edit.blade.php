@@ -15,43 +15,105 @@
 
                             <div class="invoice-detail-body">
 
-                                <div class="invoice-detail-items">
+                                <div class="invoice-detail-total">
+                                    <div class="row">
+                                        <div class="col-md-12">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered item-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Descrição</th>
-                                                    <th class="">Produto</th>
-                                                    <th class="">Valor</th>
-                                                    <th class="">Cliente</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="description">
-                                                        <input name="title" type="text" class="form-control form-control-sm" placeholder="Título do produto" value="{{ $lead->title }}">
-                                                        <textarea name="description" rows="10" class="form-control" placeholder="Descrição do produto">{{ $lead->description }}</textarea>
-                                                    </td>
-                                                    <td class="rate">
-                                                        <select name="product" class="form-control country_code  form-control-sm" id="payment-method-country">
-                                                            <option value="{{ $lead->product }}">{{ $lead->product }}</option>
-                                                            <option value="Criação de E-commerce">Criação de E-commerce</option>
-                                                            <option value="Criação de Logo">Criação de Logo</option>
-                                                            <option value="Criação de Identidade Visual">Criação de Identidade Visual</option>
-                                                            <option value="Criação de App Mobile">Criação de App Mobile</option>
-                                                            <option value="Criação de E-commerce">Criação de E-commerce</option>
-                                                        </select>
-                                                    </td>
-                                                    <td class="rate">
-                                                        <input name="value" type="text" class="form-control form-control-sm" placeholder="Valor" value="{{ $lead->value }}">
-                                                    </td>
-                                                    <td class="rate">
-                                                        <input name="name_customer" type="text" class="form-control form-control-sm" placeholder="Cliente" value="{{ $lead->name_customer }}">
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Titulo:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="title" type="text"
+                                                        class="form-control form-control-sm"
+                                                        placeholder="Título do produto"
+                                                        value="{{ $lead->title }}"
+                                                    >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Descrição:</label>
+                                                <div class="col-sm-9">
+                                                    <textarea name="description" rows="10" class="form-control" placeholder="Descrição do produto">{{ $lead->description }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Valor:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="value" type="text"
+                                                        class="form-control form-control-sm" placeholder="Valor" value="{{ $lead->value }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Produto:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="product"
+                                                        class="form-control country_code  form-control-sm"
+                                                        id="payment-method-country">
+                                                        <option value="{{ $lead->product }}">{{ $lead->product }}</option>
+                                                        <option value="Criação de E-commerce">Criação de E-commerce</option>
+                                                        <option value="Criação de Logo">Criação de Logo</option>
+                                                        <option value="Criação de Identidade Visual">Criação de Identidade
+                                                            Visual</option>
+                                                        <option value="Criação de App Mobile">Criação de App Mobile</option>
+                                                        <option value="Criação de E-commerce">Criação de E-commerce</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Fonte:</label>
+                                                <div class="col-sm-9">
+                                                    <select name="source"
+                                                        class="form-control country_code  form-control-sm"
+                                                        id="payment-method-country">
+                                                        <option value="{{ $lead->source }}">{{ $lead->source }}</option>
+                                                        <option value="whatsapp">Whatsapp</option>
+                                                        <option value="site">Site</option>
+                                                        <option value="facebook">Facebook</option>
+                                                        <option value="google">Google</option>
+                                                        <option value="instagram">Instagram</option>
+                                                        <option value="indicacao">Indicação</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Cliente:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="name_customer" type="text"
+                                                        class="form-control form-control-sm" placeholder="Cliente" value="{{ $lead->name_customer }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">Telefone:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="phone_customer" type="text"
+                                                        class="form-control form-control-sm" placeholder="Telefone" value="{{ $lead->phone_customer }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row invoice-created-by">
+                                                <label for="payment-method-account"
+                                                    class="col-sm-3 col-form-label col-form-label-sm">E-mail:</label>
+                                                <div class="col-sm-9">
+                                                    <input name="email_customer" type="text"
+                                                        class="form-control form-control-sm" placeholder="email@email.com" value="{{ $lead->email_customer }}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

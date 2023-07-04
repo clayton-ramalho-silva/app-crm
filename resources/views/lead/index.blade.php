@@ -3,55 +3,6 @@
 @section('content')
 
 
-
-{{-- <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="compose-box">
-                    <div class="compose-content" id="addTaskModalTitle">
-                        <h5 class="add-task-title">Add Task</h5>
-                        <h5 class="edit-task-title">Edit Task</h5>
-
-                        <div class="addTaskAccordion" id="add_task_accordion">
-                            <div class="card task-text-progress">
-                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#add_task_accordion">
-                                    <div class="card-body">
-                                        <form action="javascript:void(0);">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="task-title mb-4">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                                                        <input id="s-task" type="text" placeholder="Task" class="form-control" name="task">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="task-badge">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                                        <textarea id="s-text" placeholder="Task Text" class="form-control" name="taskText"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Discard</button>
-                <button data-btnfn="addTask" class="btn add-tsk">Add Task</button>
-                <button data-btnfn="editTask" class="btn edit-tsk" style="display: none;">Save</button>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <div class="row scrumboard" id="cancel-row">
     <div class="col-lg-12 layout-spacing">
 
@@ -541,7 +492,8 @@
                         <th>Valor</th>
                         <th>Cliente</th>
                         <th>Produto</th>
-                        <th>Status</th>
+                        <th>Fonte</th>
+                        <th>Estágio</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -555,29 +507,8 @@
                             <td><span class="inv-amount">R$ {{ number_format($lead->value,2,',','.') }}</span></td>
                             <td><p class="align-self-center mb-0 user-name"> {{ $lead->name_customer }} </p></td>
                             <td><p class="align-self-center mb-0 user-name"> {{ $lead->product }} </p></td>
-
-                            <td>
-                                @if ($lead->status == 'active')
-                                    <form action="{{ route('lead.status', $lead->id) }}" method="post">
-                                        @csrf
-                                        @method('PATCH')
-                                        <input type="hidden" name="status" value="deactive">
-                                        <button type="submit" class="btn btn-success btn-sm bs-tooltip" title="Desativar">
-                                            Ativo
-                                        </button>
-                                    </form>
-                                @else
-                                    <form action="{{ route('lead.status', $lead->id) }}" method="post">
-                                        @csrf
-                                        @method('PATCH')
-                                        <input type="hidden" name="status" value="active">
-                                        <button type="submit" class="btn btn-outline-danger btn-sm bs-tooltip" title="Ativar">
-                                            Inativo
-                                        </button>
-                                    </form>
-                                @endif
-                            </td>
-
+                            <td><p class="align-self-center mb-0 user-name"> {{ $lead->source }} </p></td>
+                            <td><p class="align-self-center mb-0 user-name"> {{ $lead->stages }} </p></td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

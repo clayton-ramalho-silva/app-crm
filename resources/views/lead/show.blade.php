@@ -18,24 +18,33 @@
                                 <div class="invoice-00001">
                                     <div class="content-section">
 
-                                        <div class="inv--head-section inv--detail-section" style="border-bottom: none">
+                                        <div class="inv--detail-section inv--customer-detail-section pt-5">
 
                                             <div class="row">
 
-                                                <div class="col-sm-6 col-12 mr-auto">
-                                                    <div class="d-flex flex-column">
-                                                        <p class="inv-list-number"><span class="inv-title">Titulo : </span> <span class="inv-number"> {{ $lead->title }}</span></p>
-                                                        <p class="inv-list-number"><span class="inv-title">Cliente : </span> <span class="inv-number"> {{ $lead->name_customer }}</span></p>
-                                                        <p class="inv-list-number"><span class="inv-title">Produto : </span> <span class="inv-number"> {{ $lead->product }}</span></p>
+                                                <div class="col-xl-8 col-lg-7 col-md-6 col-sm-4 align-self-center">
+                                                    <p class="inv-to">Titulo: {{ $lead->title}}</p>
+                                                    <p class="inv-street-addr">Descrição: {{ $lead->description }}</p>
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 align-self-center order-sm-0 order-1 inv--payment-info">
+                                                    <h6 class=" inv-title">Informações:</h6>
+                                                </div>
+
+                                                <div class="col-xl-8 col-lg-7 col-md-6 col-sm-4">
+                                                    <p class="inv-customer-name">Cliente: {{ $lead->name_customer }}</p>
+                                                    <p class="inv-email-address">E-mail: {{ $lead->email_customer }}</p>
+                                                    <p class="inv-email-address">Telefone: {{ $lead->phone_customer }}</p>
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 order-sm-0 order-1">
+                                                    <div class="inv--payment-info">
+                                                        <p><span class=" inv-subtitle">Valor:</span> <span>R$ {{ number_format($lead->value,2, ',', '.') }}</span></p>
+                                                        <p><span class=" inv-subtitle">Produto: </span> <span>{{ $lead->product }}</span></p>
+                                                        <p><span class=" inv-subtitle">Fonte:</span> <span>{{ $lead->source }}</span></p>
+                                                        <p><span class=" inv-subtitle">Estágio: </span> <span>{{ $lead->stages }}</span></p>
+
                                                     </div>
-                                                </div>
-
-                                                <div class="col-sm-6 text-sm-right">
-                                                    <p class="inv-list-number"><span class="inv-title">Valor : </span> <span class="inv-number">R$ {{ number_format($lead->value,2, ',', '.') }}</span></p>
-                                                </div>
-
-                                                <div class="col-sm-6 align-self-center mt-3">
-                                                    <p class="inv-list-number"><span class="inv-title">OBs.:</span> {{ $lead->description }}</p>
                                                 </div>
 
                                             </div>

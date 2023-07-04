@@ -50,14 +50,17 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
+
         $lead = new Lead;
 
         $lead->title = $request->title;
         $lead->description = $request->description;
         $lead->value = $request->value;
         $lead->name_customer = $request->name_customer;
+        $lead->phone_customer = $request->phone_customer;
+        $lead->email_customer = $request->email_customer;
         $lead->product = $request->product;
-        $lead->status = 'active';
+        $lead->source = $request->source;
 
         $lead->save();
 
@@ -96,8 +99,10 @@ class LeadController extends Controller
         $lead->description = $request->description;
         $lead->value = $request->value;
         $lead->name_customer = $request->name_customer;
+        $lead->phone_customer = $request->phone_customer;
+        $lead->email_customer = $request->email_customer;
         $lead->product = $request->product;
-        $lead->status = 'active';
+        $lead->source = $request->source;
 
         $lead->save();
 
