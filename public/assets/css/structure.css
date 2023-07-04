@@ -153,7 +153,7 @@ code { color: #e7515a; }
 .layout-px-spacing {
     padding: 0 39px!important;
 }
-/* 
+/*
 =====================
     Navigation Bar
 =====================
@@ -186,7 +186,7 @@ code { color: #e7515a; }
 .navbar .nav-logo a.navbar-brand img {
     vertical-align: top;
 
-    width: 34px;
+    width: auto;
     height: 34px;
 }
 .navbar .nav-logo a.navbar-brand .navbar-brand-name {
@@ -290,7 +290,7 @@ code { color: #e7515a; }
 .navbar .navbar-item .nav-item.dropdown.message-dropdown .nav-link {
     position: relative;
 }
-.navbar .language-dropdown { 
+.navbar .language-dropdown {
     align-self: center;
     margin-right: 20px;
 }
@@ -529,11 +529,11 @@ code { color: #e7515a; }
     margin-right: 9px;
     align-self: center;
 }
-.navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .media.file-upload svg { 
+.navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .media.file-upload svg {
     color: #e7515a;
     fill: rgba(231, 81, 90, 0.23921568627450981);
 }
-.navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .media.server-log svg { 
+.navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .media.server-log svg {
     color: #009688;
     fill: rgba(0, 150, 136, 0.3686274509803922);
 }
@@ -817,7 +817,7 @@ code { color: #e7515a; }
         height: 18px;
         stroke-width: 1.8;
     }
-    
+
 
 
 .animated{-webkit-animation-duration:0.5s;animation-duration:0.5s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
@@ -926,7 +926,7 @@ code { color: #e7515a; }
 /*
     ====================
         More Dropdown
-    ====================    
+    ====================
 */
 .page-header .custom-dropdown-icon a.dropdown-toggle {
     position: relative;
@@ -944,7 +944,7 @@ code { color: #e7515a; }
     box-shadow: none;
     font-weight: 600;
     letter-spacing: 0px;
-    
+
 }
 .page-header .custom-dropdown-icon a.dropdown-toggle span span {
     color: #888ea8;
@@ -1183,7 +1183,7 @@ code { color: #e7515a; }
     .topbar-nav.header nav#topbar ul.menu-categories li.menu:hover > a svg.feather.feather-chevron-down {
         color: #61b6cd;
     }
-         
+
     .topbar-nav.header nav#topbar ul.menu-categories li.menu > a > div {
         align-self: center;
         margin-right: 6px;
@@ -1547,7 +1547,7 @@ code { color: #e7515a; }
         position: relative;
     }
     .topbar-nav.header nav#topbar ul.menu-categories li.menu .submenu li.active a { color: #607d8b; }
-    .topbar-nav.header nav#topbar ul.menu-categories li.menu.active a[aria-expanded="false"] > div svg:not(.feather-chevron-down), 
+    .topbar-nav.header nav#topbar ul.menu-categories li.menu.active a[aria-expanded="false"] > div svg:not(.feather-chevron-down),
     .topbar-nav.header nav#topbar ul.menu-categories li.menu.active a[aria-expanded="true"] > div svg:not(.feather-chevron-down) {
         color: #fff;
         stroke-width: 2px;

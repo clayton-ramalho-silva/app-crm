@@ -4,7 +4,7 @@
 
 
 
-<div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+{{-- <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="row scrumboard" id="cancel-row">
     <div class="col-lg-12 layout-spacing">
@@ -62,6 +62,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="In Progress">Novo</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_new_value,2,',','.') }}</p>
                     </div>
 
                     <div class="connect-sorting-content" data-sortable="true">
@@ -73,7 +74,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -105,7 +108,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -120,7 +129,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        <a href="{{ route('lead.create')}}" class="addLead"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Novo Lead</a>
                     </div>
 
                 </div>
@@ -131,6 +140,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="Complete">Fluxo</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_flow_value,2,',','.') }}</p>
 
                     </div>
 
@@ -143,7 +153,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -175,7 +187,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -189,7 +207,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        {{-- <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a> --}}
                     </div>
 
                 </div>
@@ -201,6 +219,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="New">Prospecto</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_prospect_value,2,',','.') }}</p>
                     </div>
 
 
@@ -212,7 +231,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -244,7 +265,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -257,7 +284,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        {{-- <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a> --}}
                     </div>
 
                 </div>
@@ -269,6 +296,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="New">Negociação</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_negotiation_value,2,',','.') }}</p>
                     </div>
 
 
@@ -280,7 +308,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -312,7 +342,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -325,7 +361,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        {{-- <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a> --}}
                     </div>
 
                 </div>
@@ -337,6 +373,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="New">Convertido</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_win_value,2,',','.') }}</p>
                     </div>
 
 
@@ -348,7 +385,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -380,7 +419,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -393,7 +438,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        {{-- <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a> --}}
                     </div>
 
                 </div>
@@ -405,6 +450,7 @@
                 <div class="connect-sorting">
                     <div class="task-container-header">
                         <h6 class="s-heading" data-listTitle="New">Perdido</h6>
+                        <p class="inv-amount"><strong>Total:</strong> R$ {{ number_format($leads_lost_value,2,',','.') }}</p>
                     </div>
 
 
@@ -416,7 +462,9 @@
                                 <div class="task-header">
 
                                     <div class="">
-                                        <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        <a href="{{ route('lead.show', $lead->id) }}">
+                                            <h4 class="" data-taskTitle="Launch New SEO Wordpress Theme ">{{ $lead->title }} </h4>
+                                        </a>
                                     </div>
 
                                     <div class="dropdown">
@@ -448,7 +496,13 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-submit-delete">del
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 s-task-delete"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -461,7 +515,7 @@
                     </div>
 
                     <div class="add-s-task">
-                        <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a>
+                        {{-- <a class="addTask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Task</a> --}}
                     </div>
 
                 </div>
@@ -643,8 +697,45 @@ var invoiceList = $('#invoice-list').DataTable({
 
         .barra-rolagem-superior-card{
             transform: rotateX(180deg);
+            margin-bottom: 10px;
         }
 
+        .barra-rolagem-superior-container::-webkit-scrollbar{
+            background-color: #0e1726;
+            border-radius: 5px
+        }
+
+        .barra-rolagem-superior-container::-webkit-scrollbar-track{
+            background-color: #0e1726;
+
+           border-radius: 5px
+        }
+
+        .barra-rolagem-superior-container::-webkit-scrollbar-thumb{
+            background-color: #191e3a;
+            border-radius: 5px;
+        }
+
+        .addLead{
+            display: block;
+            color: #bfc9d4;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-submit-delete{
+            font-size: 0;
+            background-color: transparent;
+            border: 0;
+            padding: 5px;
+        }
+
+        .scrumboard .task-header h4:hover{
+            color: #4361ee;
+        }
 
 
     </style>

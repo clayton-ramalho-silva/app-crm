@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
+            $table->string('phone')->nullable();
+            $table->string('cellphone');
             $table->string('organization');
+            $table->enum('status', ['active', 'deactive']);
             $table->timestamps();
         });
     }

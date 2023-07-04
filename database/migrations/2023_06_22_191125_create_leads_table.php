@@ -16,9 +16,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->decimal('value',8,2)->default(0);
-            $table->string('name_customer')->nullable();
+            $table->string('name_customer');
+            $table->string('phone_customer');
+            $table->string('email_customer');
             $table->string('product')->nullable();
-            $table->string('status')->nullable();
+            $table->enum('source',['site', 'facebook', 'google', 'whatsapp','instagram', 'indicacao'])->default('site');
+            $table->enum('stages',['new', 'flow', 'prospect', 'negotiation', 'win', 'lost'])->default('new');
+
             $table->timestamps();
         });
     }

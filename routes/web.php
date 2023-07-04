@@ -1,9 +1,14 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\LeadController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\{CustomerController, LeadController, ProductController};
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 
 Route::patch('/product/status/{id}',[ProductController::class, 'status'])->name('product.status');
@@ -22,6 +27,25 @@ Route::patch('/lead/status/{id}', [LeadController::class, 'status'])->name('lead
 Route::resource('lead', LeadController::class)
     ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
-Route::get('/', function () {
-    return view('layout.index');
+
+
+
+Route::get('/dashboard', function () {
+    return view('layout.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Original - Breeze
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';

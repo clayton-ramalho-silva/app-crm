@@ -12,15 +12,29 @@ class LeadController extends Controller
      */
     public function index()
     {
-        return view('lead.index',[
-            'leads' => Lead::all(),
-            'leads_new' => Lead::where('stages','new')->get(),
-            'leads_flow' => Lead::where('stages', 'flow')->get(),
-            'leads_prospect' => Lead::where('stages', 'prospect')->get(),
-            'leads_negotiation' => Lead::where('stages', 'negotiation')->get(),
-            'leads_win' => Lead::where('stages', 'win')->get(),
-            'leads_lost' => Lead::where('stages', 'lost')->get(),
-        ]);
+
+        $leads = Lead::all();
+        $leads_new = Lead::where('stages','new')->get();
+        $leads_flow = Lead::where('stages', 'flow')->get();
+        $leads_prospect = Lead::where('stages', 'prospect')->get();
+        $leads_negotiation = Lead::where('stages', 'negotiation')->get();
+        $leads_win = Lead::where('stages', 'win')->get();
+        $leads_lost = Lead::where('stages', 'lost')->get();
+
+        $leads_new_value = $leads_new->sum('value');
+        $leads_flow_value = $leads_flow->sum('value');
+        $leads_prospect_value = $leads_prospect->sum('value');
+        $leads_negotiation_value = $leads_negotiation->sum('value');
+        $leads_win_value = $leads_win->sum('value');
+        $leads_lost_value = $leads_lost->sum('value');
+
+        return view('lead.index',compact(
+            'leads', 'leads_new', 'leads_flow',
+            'leads_prospect', 'leads_negotiation',
+            'leads_win', 'leads_lost', 'leads_new_value',
+            'leads_flow_value', 'leads_prospect_value',
+            'leads_negotiation_value', 'leads_win_value', 'leads_lost_value')
+        );
     }
 
     /**
