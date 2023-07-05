@@ -508,7 +508,28 @@
                             <td><p class="align-self-center mb-0 user-name"> {{ $lead->name_customer }} </p></td>
                             <td><p class="align-self-center mb-0 user-name"> {{ $lead->product }} </p></td>
                             <td><p class="align-self-center mb-0 user-name"> {{ $lead->source }} </p></td>
-                            <td><p class="align-self-center mb-0 user-name"> {{ $lead->stages }} </p></td>
+                            <td>
+                                @switch($lead->stages)
+                                    @case('new')
+                                        <p class="align-self-center mb-0 user-name"> Novo </p>
+                                        @break
+                                    @case('flow')
+                                        <p class="align-self-center mb-0 user-name"> Fluxo </p>
+                                        @break
+                                    @case('prospect')
+                                        <p class="align-self-center mb-0 user-name"> Prospecto </p>
+                                        @break
+                                    @case('negotiation')
+                                        <p class="align-self-center mb-0 user-name"> Negociação </p>
+                                        @break
+                                    @case('win')
+                                        <p class="align-self-center mb-0 user-name"> Convertido </p>
+                                        @break
+                                    @case('lost')
+                                        <p class="align-self-center mb-0 user-name"> Perdido </p>
+                                        @break
+                                @endswitch
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

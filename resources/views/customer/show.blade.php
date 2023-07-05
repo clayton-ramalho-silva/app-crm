@@ -30,9 +30,10 @@
                                                 </div>
 
                                                 <div class="col-sm-6 align-self-center mt-3">
-                                                    <p class="inv-email-address">{{ $customer->name }}</p>
-                                                    <p class="inv-email-address">{{ $customer->email }}</p>
-                                                    <p class="inv-email-address">{{ $customer->phone }}</p>
+                                                    <p class="inv-email-address">Nome: {{ $customer->name }}</p>
+                                                    <p class="inv-email-address">E-mail: {{ $customer->email }}</p>
+                                                    <p class="inv-email-address">Telefone: {{ $customer->phone }}</p>
+                                                    <p class="inv-email-address">Celular: {{ $customer->cellphone }}</p>
                                                 </div>
                                                 <div class="col-sm-6 align-self-center mt-3 text-sm-right">
                                                     <p class="inv-created-date"><span class="inv-title">Cliente Desde : </span> <span class="inv-date">{{ date('d-m-Y', strtotime($customer->created_at)) }}</span></p>

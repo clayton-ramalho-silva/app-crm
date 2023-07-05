@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lead;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
@@ -42,7 +43,9 @@ class LeadController extends Controller
      */
     public function create()
     {
-        return view('lead.create');
+        $products = Product::where('status', 'active')->get();
+
+        return view('lead.create', compact('products'));
     }
 
     /**

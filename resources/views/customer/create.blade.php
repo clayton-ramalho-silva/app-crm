@@ -60,6 +60,13 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group row">
+                                                    <label for="company-phone" class="col-sm-3 col-form-label col-form-label-sm">Celular</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="cellphone" class="form-control form-control-sm" id="company-phone" placeholder="(11) 9999-9999">
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                         </div>

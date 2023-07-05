@@ -22,7 +22,8 @@ class CustomerTableSeeder extends Seeder
                 'email' => $faker->email(),
                 'phone' => \Faker\Provider\pt_BR\PhoneNumber::phone(),
                 'cellphone' => \Faker\Provider\pt_BR\PhoneNumber::cellphone(),
-                'organization' => \Faker\Provider\en_US\Company::companySuffix(),
+                // 'organization' => \Faker\Provider\en_US\Company::companySuffix(),
+                'organization' => $faker->company(),
                 'status' => $faker->randomElement(['active', 'deactive']),
             ]);
 

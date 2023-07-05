@@ -53,12 +53,10 @@
                                                         class="form-control country_code  form-control-sm"
                                                         id="payment-method-country">
                                                         <option value="">Escolha Produto</option>
-                                                        <option value="Criação de E-commerce">Criação de E-commerce</option>
-                                                        <option value="Criação de Logo">Criação de Logo</option>
-                                                        <option value="Criação de Identidade Visual">Criação de Identidade
-                                                            Visual</option>
-                                                        <option value="Criação de App Mobile">Criação de App Mobile</option>
-                                                        <option value="Criação de E-commerce">Criação de E-commerce</option>
+
+                                                        @foreach ($products as $product)
+                                                            <option value="{{ $product->name }}">{{ $product->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
