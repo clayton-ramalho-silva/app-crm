@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{CustomerController, LeadController, ProductController};
+use App\Http\Controllers\{CustomerController, LeadController, ProductController, TaskController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +10,10 @@ Route::get('/', function () {
 });
 
 
+Route::get('/task/done', [TaskController::class, 'done'])->name('task.done');
+Route::post('/task/priority/{id}',[TaskController::class, 'priority'])->name('task.priority');
+Route::put('/task/status/{id}', [TaskController::class, 'status'])->name('task.status');
+Route::resource('task', TaskController::class);
 
 Route::patch('/product/status/{id}',[ProductController::class, 'status'])->name('product.status');
 Route::resource('product', ProductController::class)
@@ -19,7 +23,6 @@ Route::resource('product', ProductController::class)
 Route::patch('/customer/status/{id}', [CustomerController::class, 'status'])->name('customer.status');
 Route::resource('customer', CustomerController::class)
     ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
-
 
 
 Route::get('/lead/{id}/stages/{stage}',[LeadController::class, 'stages'])->name('lead.stages');

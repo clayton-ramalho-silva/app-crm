@@ -59,6 +59,11 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
+                                        </div>
+                                        <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -136,6 +141,11 @@
                                     <div class="task-bottom">
                                         <div class="tb-section-1">
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
+                                        </div>
+                                        <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
                                         </div>
                                         <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
@@ -216,6 +226,11 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
+                                        </div>
+                                        <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -291,6 +306,11 @@
                                     <div class="task-bottom">
                                         <div class="tb-section-1">
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
+                                        </div>
+                                        <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
                                         </div>
                                         <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
@@ -370,6 +390,11 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
+                                        </div>
+                                        <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -447,6 +472,11 @@
                                             <span data-taskDate="08 Aug 2020"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> {{ date('d-m-Y', strtotime($lead->created_at)) }}</span>
                                         </div>
                                         <div class="tb-section-2">
+                                            <button type="button" class="btn-submit-delete" data-toggle="modal" data-target="#modal-task" data-whatever="{{ $lead->id}}">del
+                                                <svg class="btn-tarefa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                            </button>
+                                        </div>
+                                        <div class="tb-section-2">
                                             <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -455,13 +485,14 @@
                                                 </button>
                                             </form>
                                         </div>
+
+
                                     </div>
 
                                 </div>
 
                             </div>
                         </div>
-
                         @endforeach
                     </div>
 
@@ -476,6 +507,41 @@
     </div>
 </div>
 
+
+ {{-- criar tarefa --}}
+ <div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nova Tarefa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <form action="{{ route('task.store') }}" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for=""> Título </label>
+                        <input type="text" name="title" class="form-control">
+                        <input type="hidden" name="lead_id" id="lead-id">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Descrição</label>
+                        <textarea class="form-control" name="description"cols="30" rows="10"></textarea>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 {{-- index  --}}
@@ -548,6 +614,9 @@
                             </td>
                         </tr>
 
+
+
+
                     @endforeach
 
 
@@ -565,6 +634,18 @@
 @push('component-scripts')
 
     <script>
+
+$('#modal-task').on('show.bs.modal', function(event){
+var button = $(event.relatedTarget);
+var recipient = button.data('whatever');
+var modal = $(this);
+modal.find('#lead-id').val(recipient);
+
+});
+
+
+
+
 
 $(document).ready(function(){
 var invoiceList = $('#invoice-list').DataTable({
@@ -689,13 +770,19 @@ var invoiceList = $('#invoice-list').DataTable({
             color: #4361ee;
         }
 
+        .btn-tarefa:hover{
+            color: #61b6cd !important;
+        }
+
 
     </style>
 
+    <link href="{{ asset('assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/datatables.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/dt-global_style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/forms/theme-checkbox-radio.css') }}">
     <link href="{{ asset('assets/css/apps/invoice-list.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css">
 
     <link href="{{ asset('assets/css/apps/scrumboard.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/forms/theme-checkbox-radio.css') }}" rel="stylesheet" type="text/css">
