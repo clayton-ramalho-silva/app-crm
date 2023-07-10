@@ -519,7 +519,7 @@
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
-                <div class="page-header">
+                {{-- <div class="page-header">
                     <nav class="breadcrumb-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboad</a></li>
@@ -537,7 +537,7 @@
                             <a class="dropdown-item" data-value="Share Statistics" href="javascript:void(0);">Share Statistics</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 @yield('content')
 

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="row scrumboard" id="cancel-row">
+<div class="row scrumboard" id="cancel-row" style="margin-top:9rem">
     <div class="col-lg-12 layout-spacing">
 
         <div id="box-stages-leads" class="task-list-section barra-rolagem-superior-container">

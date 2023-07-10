@@ -90,10 +90,19 @@ class TaskController extends Controller
 
     public function done()
     {
+
+        $user = Auth::id();
         return view('task.done',[
-            'tasks' => Task::where('status', 'done')->get(),
+            'tasks' => Task::where('status', 'done')
+                            ->where('user_id', $user)
+                            ->orderBy('priority', 'asc')
+                            ->get(),
         ]);
+
+
     }
+
+
     public function status(Request $request, $id)
     {
         $task = Task::findOrFail($id);

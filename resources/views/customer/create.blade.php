@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-<div class="row invoice layout-spacing layout-top-spacing">
+<div class="row invoice layout-spacing layout-top-spacing" style="margin-top: 9rem">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
         <div class="doc-container">
@@ -14,14 +14,14 @@
 
                             <div class="invoice-detail-body">
 
-                                <div class="invoice-detail-title">
+                                {{-- <div class="invoice-detail-title">
 
                                     <div class="invoice-logo">
                                         <div class="upload">
                                             <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" />
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="invoice-detail-header">
 

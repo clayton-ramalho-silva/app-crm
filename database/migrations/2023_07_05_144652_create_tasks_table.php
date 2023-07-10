@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->enum('status',['pending','done'])->default('pending');
-            $table->enum('priority',['high', 'middle', 'low']);
-            $table->foreignId('lead_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->enum('priority',['high', 'middle', 'low'])->default('high');
+            $table->foreignId('lead_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

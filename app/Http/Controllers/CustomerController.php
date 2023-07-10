@@ -35,6 +35,7 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->email = $request->email;
         $customer->phone = $request->phone;
+        $customer->cellphone = $request->cellphone;
         $customer->organization = $request->organization;
 
         $customer->save();
@@ -72,6 +73,7 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->email = $request->email;
         $customer->phone = $request->phone;
+        $customer->cellphone = $request->cellphone;
         $customer->organization = $request->organization;
 
         $customer->save();

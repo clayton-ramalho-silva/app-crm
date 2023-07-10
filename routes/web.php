@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{CustomerController, LeadController, ProductController, TaskController};
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,6 +10,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/user', function(){
+    return view('layout.register');
+})->name('user.create');
+
+Route::post('/user',[RegisteredUserController::class, 'store'])->name('user.store');
 
 Route::get('/task/done', [TaskController::class, 'done'])->name('task.done');
 Route::post('/task/priority/{id}',[TaskController::class, 'priority'])->name('task.priority');

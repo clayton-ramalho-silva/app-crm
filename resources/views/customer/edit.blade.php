@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-<div class="row invoice layout-spacing layout-top-spacing">
+<div class="row invoice layout-spacing layout-top-spacing" style="margin-top: 9rem">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
         <div class="doc-container">
@@ -58,6 +58,13 @@
                                                     <label for="company-phone" class="col-sm-3 col-form-label col-form-label-sm">Telefone</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" name="phone" class="form-control form-control-sm" id="company-phone" placeholder="(11) 5555-5555" value="{{ $customer->phone }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="company-phone" class="col-sm-3 col-form-label col-form-label-sm">Celular</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="cellphone" class="form-control form-control-sm" id="company-phone" placeholder="(11) 9999-9999" value="{{ $customer->cellphone}}">
                                                     </div>
                                                 </div>
 
