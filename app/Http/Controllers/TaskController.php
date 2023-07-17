@@ -18,6 +18,7 @@ class TaskController extends Controller
             'tasks' => Task::where('status', 'pending')
                             ->where('user_id', $user)
                             ->orderBy('priority', 'asc')
+                            ->orderBy('created_at', 'desc')
                             ->get(),
         ]);
     }
@@ -96,6 +97,7 @@ class TaskController extends Controller
             'tasks' => Task::where('status', 'done')
                             ->where('user_id', $user)
                             ->orderBy('priority', 'asc')
+                            ->orderBy('created_at', 'desc')
                             ->get(),
         ]);
 

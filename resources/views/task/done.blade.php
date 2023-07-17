@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-<div class="row layout-top-spacing">
+<div class="row layout-top-spacing" style="margin-top: 150px">
     <div class="col-xl-12 col-lg-12 col-md-12">
 
         <div class="mail-box-container">
@@ -18,7 +18,7 @@
                         <div class="col-md-12 col-sm-12 col-12 mt-4 pl-0">
                             <ul class="nav nav-pills d-block" id="pills-tab" role="tablist">
                                 <li class="nav-item">
-                                    <a href="{{ route('task.index') }}" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg> Inbox <span class="todo-badge badge"></span></a>
+                                    <a href="{{ route('task.index') }}" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg> Pendentes <span class="todo-badge badge"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('task.done') }}" class="nav-link active" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> Finalizados <span class="todo-badge badge"></span></a>
@@ -128,16 +128,17 @@
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
                                                 <a class="edit dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#edit-modal">Edit</a>
-                                                <form action="{{ route('task.destroy', $task->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input class="btn-submit" type="submit" value="Deletar">
+                                                <form action="{{ route('task.status', $task->id) }}" method="post">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="hidden" name='status' value='pending'>
+                                                    <input class="btn-submit" type="submit" value="Voltar Pendente">
                                                 </form>
                                                 <form action="{{ route('task.destroy', $task->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <input class="btn-submit" type="submit" value="Deletar">
-                                                    </form>
+                                                </form>
 
                                                 <a class="dropdown-item permanent-delete" href="javascript:void(0);">Permanent Delete</a>
                                                 <a class="dropdown-item revive" href="javascript:void(0);">Revive Task</a>
