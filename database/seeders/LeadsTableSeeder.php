@@ -22,7 +22,7 @@ class LeadsTableSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++){
             Lead::create([
-                'title' => $faker->word(),
+                'title' => $faker->randomElement(['Site', 'E-comerce', 'Logo', 'Identidade Visual', 'Midias Sociais']),
                 'description' => $faker->paragraph(),
                 'value' => $faker->randomNumber(4, true),
                 'name_customer' => \Faker\Provider\pt_BR\Person::firstNameMale(),

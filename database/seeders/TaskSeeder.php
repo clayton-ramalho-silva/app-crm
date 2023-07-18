@@ -17,7 +17,7 @@ class TaskSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++){
             Task::create([
-                'title' => $faker->word(),
+                'title' => $faker->randomElement(['Ligar para Cliente', 'Enviar email para Cliente', 'Marcar reunião', 'Enviar orçmanto']),
                 'description' => $faker->paragraph(),
                 'status' => $faker->randomElement(['done', 'pending']),
                 'priority' => $faker->randomElement(['low', 'middle', 'high']),
