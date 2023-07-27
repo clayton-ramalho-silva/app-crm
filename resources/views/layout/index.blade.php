@@ -14,6 +14,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('component-css')
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    @livewireStyles
 
 </head>
 <body class="alt-menu sidebar-noneoverflow">
@@ -564,6 +565,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     @stack('component-scripts')
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    @livewireScripts
 
 </body>
 </html>
