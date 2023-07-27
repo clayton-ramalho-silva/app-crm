@@ -12,7 +12,7 @@
 
                 <div class="w-browser-details">
                     <div class="w-browser-info">
-                        <h6>{{ Str::ucfirst($sourceFirst['name'])}} - teste</h6>
+                        <h6>{{ Str::ucfirst($sourceFirst['name'])}}</h6>
                         <p class="browser-count bs-tooltip" title="R$ {{ number_format($sourceFirst['value'], 2, '.', ',' )}}">{{ number_format($sourceFirst['percent'], 2, ',', ',') }}%</p>
                     </div>
                     <div class="w-browser-stats">
